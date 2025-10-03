@@ -8,15 +8,8 @@ interface FinalCTAProps {
 }
 
 export function FinalCTA({ onApplyClick }: FinalCTAProps) {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-
   return (
-    <motion.section 
-      style={{ y, opacity }}
-      className="py-32 bg-gradient-dark relative overflow-hidden"
-    >
+    <section className="py-32 bg-gradient-dark relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -108,6 +101,6 @@ export function FinalCTA({ onApplyClick }: FinalCTAProps) {
         }}
         className="absolute bottom-10 left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl"
       />
-    </motion.section>
+    </section>
   );
 }

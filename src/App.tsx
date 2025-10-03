@@ -9,8 +9,11 @@ import { ApplicationFlow } from './components/ApplicationFlow';
 export default function App() {
   const [isApplicationOpen, setIsApplicationOpen] = useState(false);
 
-  // Smooth scroll behavior
+  // Enhanced smooth scroll behavior
   useEffect(() => {
+    // Add smooth scrolling to the entire page
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
     const handleSmoothScroll = (e: Event) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
@@ -27,7 +30,10 @@ export default function App() {
     };
 
     document.addEventListener('click', handleSmoothScroll);
-    return () => document.removeEventListener('click', handleSmoothScroll);
+    return () => {
+      document.removeEventListener('click', handleSmoothScroll);
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
   }, []);
 
   // Prevent scroll when application is open

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from './ui/button';
 
 interface FinalCTAProps {
@@ -8,8 +8,15 @@ interface FinalCTAProps {
 }
 
 export function FinalCTA({ onApplyClick }: FinalCTAProps) {
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
   return (
-    <section className="py-32 bg-gradient-dark relative overflow-hidden">
+    <motion.section 
+      style={{ y, opacity }}
+      className="py-32 bg-gradient-dark relative overflow-hidden"
+    >
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -26,7 +33,7 @@ export function FinalCTA({ onApplyClick }: FinalCTAProps) {
             viewport={{ once: true }}
             className="font-clash text-5xl md:text-7xl mb-8 leading-tight"
           >
-            <span className="text-white">Ready to Build the</span>
+            <span className="text-white text-3xl md:text-4xl lg:text-5xl">Ready to Build the</span>
             <br />
             <span className="text-gradient-orange">Next Big Thing?</span>
           </motion.h2>
@@ -49,12 +56,18 @@ export function FinalCTA({ onApplyClick }: FinalCTAProps) {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <Button
-              onClick={onApplyClick}
-              className="bg-gradient-orange hover:shadow-2xl hover:shadow-primary/25 text-white px-16 py-8 text-2xl rounded-full transition-all duration-300 hover:scale-105 font-clash"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              Apply Now
-            </Button>
+              <Button
+                onClick={onApplyClick}
+                className="bg-gradient-orange hover:shadow-2xl hover:shadow-primary/25 text-white px-16 py-8 text-2xl rounded-full transition-all duration-300 font-clash"
+              >
+                Apply Now
+              </Button>
+            </motion.div>
             
             <motion.p
               initial={{ opacity: 0 }}
@@ -95,6 +108,6 @@ export function FinalCTA({ onApplyClick }: FinalCTAProps) {
         }}
         className="absolute bottom-10 left-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl"
       />
-    </section>
+    </motion.section>
   );
 }

@@ -104,25 +104,25 @@ export function ApplicationFlow({ isOpen, onClose }: ApplicationFlowProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-background z-50 overflow-hidden"
+      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 overflow-hidden"
     >
       {/* Progress bar */}
       <div className="absolute top-0 left-0 right-0 z-10">
-        <Progress value={progress} className="h-1 rounded-none" />
+        <Progress value={progress} className="h-2 rounded-none bg-white/10" />
       </div>
 
       {/* Close button */}
       <button
         onClick={onClose}
-        className="absolute top-6 right-6 z-10 text-muted-foreground hover:text-white transition-colors p-2"
+        className="absolute top-6 right-6 z-10 text-muted-foreground hover:text-white hover:bg-white/10 transition-all duration-300 p-3 rounded-full"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
 
-      <div className="h-full flex items-center justify-center p-6">
-        <div className="w-full max-w-2xl">
+      <div className="h-full flex items-center justify-center p-4 sm:p-6">
+        <div className="w-full max-w-2xl bg-card/90 backdrop-blur-md rounded-2xl border border-white/10 p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentStep}
@@ -148,7 +148,7 @@ export function ApplicationFlow({ isOpen, onClose }: ApplicationFlowProps) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="font-clash text-4xl md:text-5xl lg:text-6xl text-white leading-tight"
+                  className="font-clash text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight"
                 >
                   {currentStepData.title}
                 </motion.h1>
@@ -173,7 +173,7 @@ export function ApplicationFlow({ isOpen, onClose }: ApplicationFlowProps) {
                   value={answers[currentStepData.id] || ''}
                   onChange={(e) => updateAnswer(e.target.value)}
                   placeholder={currentStepData.placeholder}
-                  className="min-h-[200px] text-lg bg-card border-white/20 focus:border-primary transition-colors resize-none"
+                  className="min-h-[200px] text-lg bg-white/5 border border-white/20 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none text-white placeholder:text-white/60 rounded-xl px-4 py-3"
                   autoFocus
                 />
               </motion.div>
@@ -183,12 +183,12 @@ export function ApplicationFlow({ isOpen, onClose }: ApplicationFlowProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="flex items-center justify-between pt-8"
+                className="flex flex-col sm:flex-row items-center justify-between pt-8 gap-4 sm:gap-0"
               >
                 <Button
                   onClick={handleBack}
                   variant="ghost"
-                  className="text-muted-foreground hover:text-white"
+                  className="text-muted-foreground hover:text-white hover:bg-white/10 px-6 py-3 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={currentStep === 0}
                 >
                   <ArrowLeft className="w-5 h-5 mr-2" />
@@ -198,7 +198,7 @@ export function ApplicationFlow({ isOpen, onClose }: ApplicationFlowProps) {
                 <Button
                   onClick={handleNext}
                   disabled={!isStepComplete}
-                  className="bg-gradient-orange hover:shadow-lg hover:shadow-primary/25 px-8 transition-all duration-300"
+                  className="bg-gradient-orange hover:shadow-lg hover:shadow-primary/25 px-8 py-3 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   {isLastStep ? (
                     <>

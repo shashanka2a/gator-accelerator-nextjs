@@ -1,9 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Code, TrendingUp, Users, Zap } from 'lucide-react';
 
 export function Mission() {
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
+
   const features = [
     {
       icon: <Zap className="w-8 h-8" />,
@@ -28,8 +32,11 @@ export function Mission() {
   ];
 
   return (
-    <section className="py-24 bg-card/50">
-      <div className="container mx-auto px-6">
+    <motion.section 
+      style={{ y, opacity }}
+      className="py-24 bg-card/50 relative overflow-hidden"
+    >
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +49,7 @@ export function Mission() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             viewport={{ once: true }}
-            className="font-clash text-4xl md:text-6xl mb-8"
+            className="font-clash text-4xl md:text-6xl mb-8 leading-tight"
           >
             <span className="text-gradient-orange">Strategically Embedded</span>
             <br />
@@ -94,6 +101,32 @@ export function Mission() {
           ))}
         </div>
       </div>
-    </section>
+      
+      {/* Background decoration */}
+      <motion.div
+        animate={{ 
+          rotate: [0, 360],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{ 
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        className="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl"
+      />
+      <motion.div
+        animate={{ 
+          rotate: [360, 0],
+          scale: [1.2, 1, 1.2]
+        }}
+        transition={{ 
+          duration: 15,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/3 rounded-full blur-3xl"
+      />
+    </motion.section>
   );
 }

@@ -8,19 +8,19 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Gator Accelerator - Backing the Boldest Student Builders",
+  title: "Gator Accelerator - Backing the Boldest Builders",
   description: "Starting a company is tough. And lonely. We've been there. Gator Accelerator is designed to give you an edge from the very beginning with Capital, Code, and Conviction.",
-  keywords: ["accelerator", "startup", "entrepreneurship", "university of florida", "student", "innovation"],
+  keywords: ["accelerator", "startup", "entrepreneurship", "innovation"],
   authors: [{ name: "Gator Accelerator" }],
   openGraph: {
-    title: "Gator Accelerator - Backing the Boldest Student Builders",
+    title: "Gator Accelerator - Backing the Boldest Builders",
     description: "Starting a company is tough. And lonely. We've been there. Gator Accelerator is designed to give you an edge from the very beginning.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gator Accelerator - Backing the Boldest Student Builders",
+    title: "Gator Accelerator - Backing the Boldest Builders",
     description: "Starting a company is tough. And lonely. We've been there. Gator Accelerator is designed to give you an edge from the very beginning.",
   },
 };

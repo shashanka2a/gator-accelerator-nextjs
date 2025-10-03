@@ -91,7 +91,7 @@ export default function App() {
       <footer className="py-12 bg-card/30 border-t border-white/10">
         <div className="container mx-auto px-6 text-center">
           <div className="flex items-center justify-center space-x-8 mb-6">
-            <span className="text-muted-foreground">University of Florida</span>
+            <span className="text-muted-foreground">Startups</span>
             <span className="text-muted-foreground">•</span>
             <span className="text-muted-foreground">Student Innovation</span>
             <span className="text-muted-foreground">•</span>

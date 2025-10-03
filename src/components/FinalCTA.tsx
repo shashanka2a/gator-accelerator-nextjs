@@ -38,7 +38,7 @@ export function FinalCTA({ onApplyClick }: FinalCTAProps) {
             viewport={{ once: true }}
             className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            Join the most ambitious student entrepreneurs at the University of Florida. 
+            Join the most ambitious entrepreneurs. 
             Apply now and let&apos;s turn your vision into reality.
           </motion.p>
 

@@ -63,7 +63,7 @@ export function Mission() {
             viewport={{ once: true }}
             className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4"
           >
-            We provide comprehensive support for ambitious student entrepreneurs
+            We provide comprehensive support for ambitious entrepreneurs
           </motion.p>
           
           <motion.p

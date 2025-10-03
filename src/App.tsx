@@ -93,7 +93,7 @@ export default function App() {
           <div className="flex items-center justify-center space-x-8 mb-6">
             <span className="text-muted-foreground">Startups</span>
             <span className="text-muted-foreground">•</span>
-            <span className="text-muted-foreground">Student Innovation</span>
+            <span className="text-muted-foreground">Innovation</span>
             <span className="text-muted-foreground">•</span>
             <span className="text-muted-foreground">Entrepreneurship</span>
           </div>

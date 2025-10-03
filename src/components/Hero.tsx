@@ -64,7 +64,7 @@ export function Hero({ onApplyClick }: HeroProps) {
               transition={{ delay: 0.8, duration: 0.8 }}
               className="text-white block"
             >
-              Student Builders
+              Builders
             </motion.span>
             <motion.span 
               initial={{ opacity: 0, y: 20 }}

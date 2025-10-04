@@ -63,7 +63,7 @@ export default function App() {
       <nav className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="font-clash text-xl text-white">
-            Gator Accelerator
+            Buildverse
           </div>
           <button
             onClick={handleApplyClick}
@@ -98,7 +98,7 @@ export default function App() {
             <span className="text-muted-foreground">Entrepreneurship</span>
           </div>
           <p className="text-muted-foreground">
-            © 2024 Gator Accelerator. Building the future, one bold idea at a time.
+            © 2024 Buildverse. Building the future, one bold idea at a time.
           </p>
         </div>
       </footer>

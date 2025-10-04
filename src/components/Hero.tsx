@@ -40,7 +40,7 @@ export function Hero({ onApplyClick }: HeroProps) {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mb-12"
           >
-            <h3 className="text-lg tracking-[0.2em] text-muted-foreground font-medium uppercase">GATOR ACCELERATOR</h3>
+            <h3 className="text-lg tracking-[0.2em] text-muted-foreground font-medium uppercase">BUILDVERSE</h3>
           </motion.div>
 
           {/* Main headline */}
@@ -83,7 +83,7 @@ export function Hero({ onApplyClick }: HeroProps) {
             transition={{ delay: 1.2, duration: 0.8 }}
             className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-16 max-w-4xl mx-auto leading-relaxed font-light"
           >
-            Starting a company is tough. And lonely. We&apos;ve been there. Gator Accelerator is designed to give you an edge from the very beginning.
+            Starting a company is tough. And lonely. We&apos;ve been there. Buildverse is designed to give you an edge from the very beginning.
           </motion.p>
 
           {/* CTA Button */}
